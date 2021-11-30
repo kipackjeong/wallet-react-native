@@ -1,21 +1,32 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import ExpenseList from './components/ExpenseList'
+import Budget from './components/Budget';
+import DateBar from './components/DateBar'
+import mockData from './mockData'
 
 export default function App() {
+  const [expenses, setExpenses] = useState(mockData.sevenDayExpenses)
+
+
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <ScrollView style={styles.App} contentContainerStyle={{
+      alignItems: 'center',
+    }}
+      nestedScrollEnabled={true}>
       <StatusBar style="auto" />
-    </View>
+      <DateBar />
+      <Budget />
+      <ExpenseList sevenDayExpenses={expenses} />
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  App: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#07183d',
   },
 });
