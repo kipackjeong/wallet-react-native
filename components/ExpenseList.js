@@ -17,7 +17,7 @@ const ExpenseList = ({ sevenDayExpenses }) => {
                                 return (
                                     <View key={i} style={[row, elevation]}>
                                         <Text style={[text, expenseDetail]}>{expense.description}</Text>
-                                        <Text style={[text, expenseDetail]}>{expense.price}</Text>
+                                        <Text style={[text, expenseDetail]}>{`$${expense.price}`}</Text>
                                     </View>
                                 )
                             })}
@@ -52,6 +52,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         paddingBottom: 1,
 
+        borderBottomWidth: 0.1,
+
+        // elevation: 12,
+        // shadowColor: 'white'
     },
     elevation: {
         shadowColor: 'white'
@@ -64,8 +68,11 @@ const styles = StyleSheet.create({
 
         borderColor: 'white',
         borderStyle: 'solid',
-        borderWidth: 0.8,
-        borderRadius: 5
+        borderWidth: 0.1,
+
+        elevation: 1,
+        shadowColor: 'white'
+
     }
 })
 export default ExpenseList

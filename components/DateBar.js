@@ -12,13 +12,11 @@ const DateBar = () => {
 
 const styles = StyleSheet.create({
     dateBar: {
-        height: 10,
-        marginTop: 50,
+        width: '50%',
 
-        flex: 1,
-
-        elevation: 20,
-        shadowColor: 'white'
+        flex: 4,
+        textAlign: 'center',
+        justifyContent: 'center',
     },
     text: {
         fontSize: 32,
