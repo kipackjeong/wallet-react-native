@@ -29,9 +29,7 @@ const Budget = () => {
 const styles = StyleSheet.create({
 
     budget: {
-        height: 20,
-
-        flex: 1,
+        height: 150,
         justifyContent: 'center',
         alignItems: 'center',
     },

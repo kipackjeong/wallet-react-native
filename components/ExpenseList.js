@@ -3,21 +3,19 @@ import React from 'react'
 import { StyleSheet, Text, View, ScrollView } from 'react-native'
 
 const ExpenseList = ({ sevenDayExpenses }) => {
-    const { expenseDetail, expenseDate, text, weekText, row, expenseList, expenseContainer, elevation } = styles
-    console.log(sevenDayExpenses)
     return (
-        < >
-            <Text style={[weekText, text]}> Week 1 </Text>
-            <ScrollView style={expenseList} contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }} nestedScrollEnabled={true}>
+        <>
+            <Text style={[styles.weekText, styles.text]}> Week 1 </Text>
+            <ScrollView style={styles.expenseList} contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }} nestedScrollEnabled={true}>
                 {sevenDayExpenses.map(((dayExpense, i) => {
                     return (
                         <>
-                            <Text key={i} style={[text, expenseDate]}> {dayExpense.date} </Text>
-                            {dayExpense.expenses.map((expense, i) => {
+                            <Text key={Math.random()} style={[styles.text, styles.expenseDate]}> {dayExpense.date} </Text>
+                            {dayExpense.expenses.map((expense, j) => {
                                 return (
-                                    <View key={i} style={[row, elevation]}>
-                                        <Text style={[text, expenseDetail]}>{expense.description}</Text>
-                                        <Text style={[text, expenseDetail]}>{`$${expense.price}`}</Text>
+                                    <View key={`${expense.description}${j}`} style={[styles.row, styles.elevation]}>
+                                        <Text key={Math.random()} style={[styles.text, styles.expenseDetail]}>{expense.description}</Text>
+                                        <Text key={Math.random()} style={[styles.text, styles.expenseDetail]}>{`$${expense.price}`}</Text>
                                     </View>
                                 )
                             })}
@@ -38,14 +36,13 @@ const styles = StyleSheet.create({
         flex: 1,
         fontSize: 25,
     },
-    weekText: {
-        fontSize: 30,
-        fontWeight: '800',
-    },
     text: {
         textAlign: 'center',
         color: 'white'
-
+    },
+    weekText: {
+        fontSize: 30,
+        fontWeight: '800',
     },
     row: {
         width: '100%',
@@ -63,7 +60,7 @@ const styles = StyleSheet.create({
 
     expenseList: {
         width: '100%',
-        height: '60%',
+
 
 
         borderColor: 'white',

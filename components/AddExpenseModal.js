@@ -1,38 +1,41 @@
-import React from 'react'
-import { View, StyleSheet, Text, Modal, Pressable } from 'react-native'
-const AddExpenseModal = ({ modalVisible, setModalVisible }) => {
-    return (
-        <>
-            <Pressable
-                style={[styles.button, styles.buttonOpen]}
-                onPress={() => setModalVisible(true)}
-            >
-                <Text style={styles.textStyle}> Add </Text>
-            </Pressable>
-            <Modal
-                animationType="slide"
-                transparent={true}
-                visible={modalVisible}
-                onRequestClose={() => {
-                    Alert.alert("Modal has been closed.");
-                    setModalVisible(!modalVisible);
-                }}
-            >
+import React, { useState } from 'react'
+import { View, StyleSheet, Text, Modal, Pressable, TextInput, } from 'react-native'
+import { Calendar } from 'react-native-calendars';
+import CalendarBox from './CalendarBox';
+import Gradient from './Gradient';
 
+const AddExpenseModal = ({ modalVisible, setModalVisible }) => {
+
+    return (
+        <Modal
+            animationType="slide"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => {
+                setModalVisible(!modalVisible);
+            }}
+        >
+            <Gradient style={{ opacity: 0.97 }}>
                 <View style={styles.centeredView}>
                     <View style={styles.modalView}>
-                        <Text style={styles.modalText}>Hello World!</Text>
+                        <View style={styles.calendarBoxContainer}>
+                            <CalendarBox />
+                        </View>
+
+                        <TextInput style={styles.textInput} placeholder='Category'></TextInput>
+                        <TextInput style={styles.textInput} placeholder='Description'></TextInput>
+                        <TextInput style={styles.textInput} placeholder='Cost' keyboardType='number-pad'></TextInput>
                         <Pressable
                             style={[styles.button, styles.buttonClose]}
                             onPress={() => setModalVisible(!modalVisible)}
                         >
-                            <Text style={styles.textStyle}>Hide Modal</Text>
+                            <Text style={{ fontSize: 20, color: 'white' }}>Close</Text>
                         </Pressable>
                     </View>
                 </View>
-            </Modal>
+            </Gradient>
 
-        </>
+        </Modal>
     )
 }
 const styles = StyleSheet.create({
@@ -47,27 +50,31 @@ const styles = StyleSheet.create({
         width: '100%',
 
         margin: 20,
-        backgroundColor: "white",
-        borderRadius: 20,
+        borderRadius: 1,
         padding: 35,
         alignItems: "center",
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
-            height: 2
+            height: 1
         },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
-        elevation: 5
-    },
-
-    button: {
-        borderRadius: 20,
-        padding: 10,
         elevation: 2
     },
-    buttonOpen: {
-        backgroundColor: "#F194FF",
+    textInput: {
+        height: 40,
+        width: 300,
+        margin: 12,
+        elevation: 1,
+
+        padding: 10,
+
+        fontSize: 20,
+
+        color: 'white'
     },
+    calendarBoxContainer: {
+        width: 300
+    }
+
 })
 export default AddExpenseModal
