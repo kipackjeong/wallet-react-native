@@ -13,7 +13,7 @@ const ExpenseList = ({ sevenDayExpenses }) => {
                             <Text key={Math.random()} style={[styles.text, styles.expenseDate]}> {dayExpense.date} </Text>
                             {dayExpense.expenses.map((expense, j) => {
                                 return (
-                                    <View key={`${expense.description}${j}`} style={[styles.row, styles.elevation]}>
+                                    <View key={`${expense.description}${j} ${Math.random()}`} style={[styles.row, styles.elevation]}>
                                         <Text key={Math.random()} style={[styles.text, styles.expenseDetail]}>{expense.description}</Text>
                                         <Text key={Math.random()} style={[styles.text, styles.expenseDetail]}>{`$${expense.price}`}</Text>
                                     </View>
