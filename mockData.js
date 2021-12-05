@@ -90,10 +90,10 @@ const sevenDays = getSevenDays(today)
 const mockData = {
     date: today,
     // 7 days
-    sevenDayExpenses: [{
+    sevenDayItems: [{
 
         date: sevenDays[0],
-        expenses: [
+        items: [
             { id: 'id', description: 'walmart', category: 'grocery', price: 1 },
             { id: 'id', description: 'enmarket gas', category: 'transportation', price: 10 },
             { id: 'id', description: 'McDonald', category: 'restaurant', price: 10 },
@@ -103,7 +103,7 @@ const mockData = {
         ]
     }, {
         date: sevenDays[1],
-        expenses: [
+        items: [
             { id: 'id', description: 'k-mart', category: 'grocery', price: 10 },
             { id: 'id', description: 'vehicle registration', category: 'transportation', price: 10 },
             { id: 'id', description: 'uber', category: 'restaurant', price: 10 },
@@ -113,7 +113,7 @@ const mockData = {
         ]
     }, {
         date: sevenDays[2],
-        expenses: [
+        items: [
             { id: 'id', description: 'movie', category: 'entertainment', price: 10 },
             { id: 'id', description: 'soccer shoes', category: 'sports', price: 10 },
             { id: 'id', description: 'soccer ball', category: 'sports', price: 10 },
@@ -121,7 +121,7 @@ const mockData = {
         ]
     }, {
         date: sevenDays[3],
-        expenses: [
+        items: [
             { id: 'id', description: 'h-mart', category: 'grocery', price: 10 },
             { id: 'id', description: 'computer desk', category: 'e-commerce', price: 10 },
             { id: 'id', description: 'udemy course', category: 'education', price: 10 },

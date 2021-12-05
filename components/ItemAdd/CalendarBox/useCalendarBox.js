@@ -7,9 +7,9 @@ function reducer(states, action) {
 
             const newDateObj = {}
             newDateObj[dateString] = { selected: true, marked: true, selectedColor: 'blue' }
-            return { ...states, selectedDateObj: newDateObj }
+            return { ...states, selectedDateObj: newDateObj, isCalOpen: false }
         case 'CONTROL_CAL':
-            return { ...states, isCalOpen: true }
+            return { ...states, isCalOpen: !states.isCalOpen }
         case 'CHANGE_DATE_STRING':
             return { ...states, selectedDate: action.value }
         default:

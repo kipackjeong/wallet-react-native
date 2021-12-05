@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 32,
         fontWeight: '800',
-        color: 'white'
+        color: 'black'
     }
 })
 
