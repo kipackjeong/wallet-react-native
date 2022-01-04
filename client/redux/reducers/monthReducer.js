@@ -47,6 +47,7 @@ const monthReducer = (state = {}, action) => {
 					newState.weeks[i].days.push(action.value);
 				}
 			}
+
 			console.log("redux/reducers/monthReducer - Add_Item");
 			console.log(newState);
 			console.log("redux/reducers/monthReducer - Add_Item");
